@@ -33,7 +33,11 @@ namespace GraduwayTasks.Web.Controllers
                     : Ok(_mapper.Map<EmployeeModel>(entity));
             }
 
-            return Ok(_mapper.Map<EmployeeModel[]>(await query.ToArrayAsync(cancellationToken)));
+            return Ok(_mapper.Map<EmployeeModel[]>(
+                await query
+                    .OrderBy(e => e.FirstName)
+                    .ThenBy(e => e.LastName)
+                    .ToArrayAsync(cancellationToken)));
         }
     }
 }

@@ -1,9 +1,41 @@
 <div class="row">
   <div class="col-4">
-    <p>LIST</p>
+    <h4>Employees</h4>
+    <div class="list-group list-group-flush">
+      <a href="javascript:void(0);"
+         class="list-group-item list-group-item-action"
+         *ngFor="let employee of employees"
+         [ngClass]="{'list-group-item-primary': employee.id == selectedId}"
+         (click)="select(employee.id)">{{employee.firstName}} {{employee.lastName}} ({{employee.position}})</a>
+      <!--Last item to show the bottom border for the last item -->
+      <a class="list-group-item"></a>
+    </div>
   </div>
 
   <div class="col-8">
-    <p>DETAILS</p>
+    <h4>Tasks</h4>
+    <div class="card-columns">
+      <div class="card"
+           *ngFor="let workItem of workItems"
+           [class.list-group-item-danger]="workItem.priority == priority.Critical"
+           [class.list-group-item-warning]="workItem.priority == priority.Medium"
+           [class.list-group-item-info]="workItem.priority == priority.Low">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="javascript:void(0);" (click)="openWorkItem(workItem)">{{workItem.title}}</a>
+          </h5>
+          <p class="card-text">
+            <span class="badge badge-secondary">{{workItemService.getStateDisplay(workItem.state)}}</span>
+            &nbsp;
+            <span class="badge"
+                  [class.badge-danger]="workItem.priority == priority.Critical"
+                  [class.badge-warning]="workItem.priority == priority.Medium"
+                  [class.badge-info]="workItem.priority == priority.Low">{{workItemService.getPriorityDisplay(workItem.priority)}}</span>
+          </p>
+          <p class="card-text">{{workItem.description}}</p>
+          <p class="card-text"><small class="text-muted">Created at {{workItem.createdAt | date:'short'}}</small></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

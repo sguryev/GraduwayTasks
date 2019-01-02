@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h5 class="modal-title">{{workItem.title}}</h5>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <span class="badge badge-secondary">{{workItemService.getStateDisplay(workItem.state)}}</span>
+  &nbsp;
+  <span class="badge"
+        [class.badge-danger]="workItem.priority == priority.Critical"
+        [class.badge-warning]="workItem.priority == priority.Medium"
+        [class.badge-info]="workItem.priority == priority.Low">{{workItemService.getPriorityDisplay(workItem.priority)}}</span>
+  <p>{{workItem.description}}</p>
+  <p class="card-text"><small class="text-muted">Created at {{workItem.createdAt | date:'short'}}</small></p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()">Close</button>
+</div>

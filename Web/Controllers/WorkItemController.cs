@@ -33,7 +33,12 @@ namespace GraduwayTasks.Web.Controllers
                     : Ok(_mapper.Map<WorkItemModel>(entity));
             }
 
-            return Ok(_mapper.Map<WorkItemModel[]>(await query.ToArrayAsync(cancellationToken)));
+            return Ok(_mapper.Map<WorkItemModel[]>(
+                await query
+                    .OrderBy(wi => wi.Priority)
+                    .ThenBy(wi => wi.State)
+                    .ThenBy(wi => wi.Title)
+                    .ToArrayAsync(cancellationToken)));
         }
 
         [HttpGet("employee/{employeeId}")]
@@ -46,6 +51,9 @@ namespace GraduwayTasks.Web.Controllers
 
             return Ok(_mapper.Map<WorkItemModel[]>(await DbContext.WorkItems
                 .Where(wi => wi.EmployeeId == employeeId)
+                .OrderBy(wi => wi.Priority)
+                .ThenBy(wi => wi.State)
+                .ThenBy(wi => wi.Title)
                 .ToArrayAsync(cancellationToken)));
         }
     }

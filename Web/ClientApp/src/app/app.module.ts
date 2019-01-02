@@ -21,8 +21,8 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: 'employees', loadChildren: './employees/employees.module#SecureMailModule' },
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'employees', loadChildren: './employees/employees.module#EmployeesModule' },
+      { path: '', component: HomeComponent, pathMatch: 'full' }
 
       /*{ path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },*/

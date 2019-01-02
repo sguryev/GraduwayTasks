@@ -1,9 +1,5 @@
 ﻿namespace GraduwayTasks.Data.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Security.Claims;
     using System.Threading.Tasks;
     using Microsoft.EntityFrameworkCore;
     using Model;
@@ -41,6 +37,11 @@
                         new WorkItem {Title = $"Task for {employee.FirstName} 1", State = State.New, Priority = Priority.Medium, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"},
                         new WorkItem {Title = $"Task for {employee.FirstName} 2", State = State.Active, Priority = Priority.Critical, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"},
                         new WorkItem {Title = $"Task for {employee.FirstName} 3", State = State.Resolved, Priority = Priority.Medium, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"},
+                        new WorkItem {Title = $"Task for {employee.FirstName} 4", State = State.New, Priority = Priority.Low, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"},
+                        new WorkItem {Title = $"Task for {employee.FirstName} 5", State = State.Resolved, Priority = Priority.Critical, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"},
+                        new WorkItem {Title = $"Task for {employee.FirstName} 6", State = State.Active, Priority = Priority.Medium, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"},
+                        new WorkItem {Title = $"Task for {employee.FirstName} 7", State = State.Resolved, Priority = Priority.Low, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"},
+                        new WorkItem {Title = $"Task for {employee.FirstName} 8", State = State.Active, Priority = Priority.Critical, Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"},
                     };
                 }
 
