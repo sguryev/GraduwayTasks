@@ -32,7 +32,7 @@
                   [class.badge-warning]="workItem.priority == priority.Medium"
                   [class.badge-info]="workItem.priority == priority.Low">{{workItemService.getPriorityDisplay(workItem.priority)}}</span>
           </p>
-          <p class="card-text">{{workItem.description}}</p>
+          <p class="card-text text-truncate">{{workItem.description}}</p>
           <p class="card-text"><small class="text-muted">Created at {{workItem.createdAt | date:'short'}}</small></p>
         </div>
       </div>

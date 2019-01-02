@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { EmployeesComponent } from './employees.component';
-import { WorkitemModalContentComponent } from './workitem-modal-content/workitem-modal-content.component';
 import { WorkItemModalContentComponent } from './work-item-modal-content/work-item-modal-content.component';
 
 const routes: Routes = [

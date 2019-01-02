@@ -23,9 +23,6 @@ import { HomeComponent } from './home/home.component';
     RouterModule.forRoot([
       { path: 'employees', loadChildren: './employees/employees.module#EmployeesModule' },
       { path: '', component: HomeComponent, pathMatch: 'full' }
-
-      /*{ path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },*/
     ]),
     EmployeesModule
   ],
