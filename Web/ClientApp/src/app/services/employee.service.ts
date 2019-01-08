@@ -26,11 +26,31 @@ export class EmployeeService {
           });
     });
   }
+
+  post(model: EmployeePostModel): Promise<IEmployeeModel> {
+
+    return new Promise((resolve, reject) => {
+      this.httpClient.post<IEmployeeModel>(`${this.baseUrl}api/employee`, model)
+        .subscribe(
+          result => {
+            resolve(result);
+            return;
+          },
+          error => {
+            console.error(error);
+            reject(error.error);
+            return;
+          });
+    });
+  }
 }
 
-export interface IEmployeeModel {
+export interface IEmployeeModel extends EmployeePostModel {
   id: string;
   createdAt: Date;
+}
+
+export class EmployeePostModel {
   firstName: string;
   lastName: string;
   position: string;

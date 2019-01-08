@@ -3,9 +3,10 @@
     using Data;
     using Microsoft.AspNetCore.Mvc;
 
-    public abstract class BaseController: Controller
+    [ApiController]
+    public abstract class BaseApiController: Controller
     {
-        protected BaseController(ApplicationDbContext dbContext)
+        protected BaseApiController(ApplicationDbContext dbContext)
         {
             DbContext = dbContext;
         }

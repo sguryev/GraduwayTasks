@@ -15,11 +15,15 @@
         private void MapEmployee()
         {
             CreateMap<Employee, EmployeeModel>();
+
+            CreateMap<EmployeePostModel, Employee>();
         }
 
         private void MapWorkItem()
         {
             CreateMap<WorkItem, WorkItemModel>();
+
+            CreateMap<WorkItemPostModel, WorkItem>();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace GraduwayTasks.Web
     using Microsoft.EntityFrameworkCore.Diagnostics;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Services.Employee;
 
     public class Startup
     {
@@ -40,6 +41,8 @@ namespace GraduwayTasks.Web
             });
 
             services.AddAutoMapper();
+
+            services.AddTransient<IEmployeeService, EmployeeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,3 +1,5 @@
+using GraduwayTasks.Data.Model;
+
 namespace GraduwayTasks.Web.Controllers
 {
     using System.Linq;
@@ -11,7 +13,7 @@ namespace GraduwayTasks.Web.Controllers
     using Models;
 
     [Route("api/[controller]")]
-    public class WorkItemController : BaseController
+    public class WorkItemController : BaseApiController
     {
         private readonly IMapper _mapper;
 
@@ -55,6 +57,25 @@ namespace GraduwayTasks.Web.Controllers
                 .ThenBy(wi => wi.State)
                 .ThenBy(wi => wi.Title)
                 .ToArrayAsync(cancellationToken)));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(WorkItemPostModel model, CancellationToken cancellationToken)
+        {
+            if (model == null)
+            {
+                return BadRequest($"{nameof(model)} is null");
+            }
+
+            //[ApiController] makes the validation https://docs.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-2.2#automatic-http-400-responses
+
+            var entity = _mapper.Map<WorkItem>(model);
+
+            DbContext.WorkItems.Add(entity);
+
+            await DbContext.SaveChangesAsync(cancellationToken);
+
+            return CreatedAtAction(nameof(Get), Mapper.Map<WorkItemModel>(entity));
         }
     }
 }
